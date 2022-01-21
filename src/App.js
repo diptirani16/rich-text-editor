@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import ReactQuill from 'react-quill';
+import '../node_modules/react-quill/dist/quill.snow.css';
+import { useState } from 'react';
 
 function App() {
+  const [body, setBody] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReactQuill
+        placeholder='Enter Something!'
+        value={body}
+        onChange={(e) => setBody(e.target.value)} />
     </div>
   );
 }
